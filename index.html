@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Rabooni's Portfolio</title>
     <link rel="icon" href="images/rs.png" type="image/x-icon">
     <style>
@@ -25,35 +26,80 @@
             color:  #66B266;
         }
 
-        /* Navbar */
-        .navbar {
-            background-color: white;
-            padding: 40px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            box-shadow: white;
-        }
+       /* Navbar */
+.navbar {
+    background-color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
 
-        .navbar .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #66B266;
-        }
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #66B266;
+    text-decoration: none;
+}
 
-        .navbar ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 20px;
-        }
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
 
-        .navbar li {
-            display: inline;
-        }
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #66B266;
+}
+
+/* Hamburger Menu (Hidden by default) */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #66B266;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none; /* Hide menu by default */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: white;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+    }
+
+    .navbar ul.active {
+       display: flex; /* Show menu when active */
+        padding-left: 70px;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger menu */
+    }
+}
 
         /* About Section */
         #about {
@@ -126,8 +172,7 @@
     font-size: 24px; /* Ensure the icon size matches the text size */
 }
 
-
-        /* Skills Section */
+/* Skills Section Base Styles */
 #skills {
     background-color: #66B266;
     padding: 40px 20px;
@@ -143,61 +188,83 @@
 #skills .skills-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-     height: 310px;
-    margin-top: 50px;
-     margin-bottom: 230px;
+    gap: 20px; /* Add spacing between cards */
+    flex-wrap: wrap; /* Enable wrapping of cards */
+    margin: 40px 0;
 }
 
 #skills .skill-card {
     background-color: white;
-    border:  black;
+    border: 1px solid black;
     border-radius: 10px;
-    padding: 30px; /* Increased padding for more space */
-    width: 350px;  /* Increased width */
-    height: 500px; /* Increased height */
+    padding: 20px;
+    width: 300px; /* Default width */
     text-align: center;
-   
-    
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for aesthetics */
 }
 
 #skills .skill-card h3 {
-    font-size: 20px;
+    font-size: 22px;
     color: black;
-    margin-bottom: 25px;
-
+    margin-bottom: 15px;
 }
 
 #skills .skill-card p {
-    font-size: 17px;
+    font-size: 16px;
     color: black;
-    line-height: 1.5;
-margin-top: 5px;
-margin-left:20px;
- margin-bottom: 25px;
-
-text-align: center;
-
-
+    line-height: 1.6;
+    margin: 10px 0;
 }
 
 #skills .skill-card .skill-header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 25px;
-margin-left:20px;
+    margin-bottom: 20px;
 }
 
 #skills .skill-card .skill-header i {
-    margin-top: 50px;
-        font-size: 40px;
+    font-size: 35px;
     color: #66B266;
-    margin-right: 10px;
-margin-bottom: 20px;
-
+    margin-right: 5px;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    #skills .skills-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center align the cards */
+        gap: 20px;
+    }
+
+    #skills .skill-card {
+        width: 90%; /* Full width on small screens */
+        padding: 15px; /* Adjust padding */
+    }
+
+    #skills .skill-card h3 {
+        font-size: 18px; /* Smaller headings */
+    }
+
+    #skills .skill-card p {
+        font-size: 14px; /* Smaller text */
+    }
+}
+
+@media (max-width: 480px) {
+    #skills h1 {
+        font-size: 24px; /* Smaller header font size */
+    }
+
+    #skills .skill-card {
+        width: 95%; /* More compact width */
+    }
+
+    #skills .skill-card .skill-header i {
+        font-size: 28px; /* Adjust icon size */
+    }
+}
+
 /* Projects Section */
 #projects {
     margin-top: 100px;
@@ -312,23 +379,48 @@ margin-bottom: 20px;
 #footer p {
     margin: 0;
 }
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 10px; /* Adjust spacing for smaller screens */
+    }
+
+    .header, .footer {
+        font-size: 14px; /* Smaller font size for headers and footers */
+    }
+
+    .image {
+        width: 100%; /* Images take full width of the container */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
 
 
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">Rabooni's Portfolio</div>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#footer">Contact</a></li>
-        </ul>
-    </nav>
+<nav class="navbar">
+    <div class="logo">Rabooni's Portfolio</div>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#footer">Contact</a></li>
+    </ul>
+    <div class="hamburger">
+        <i class="fas fa-bars"></i>
+    </div>
+</nav>
+<script>
+        document.querySelector('.hamburger').addEventListener('click', function () {
+            document.querySelector('.navbar ul').classList.toggle('active');
+        });
+    </script>
 
     <!-- About Section -->
     <section id="about">
